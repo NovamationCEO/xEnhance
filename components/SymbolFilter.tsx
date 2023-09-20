@@ -37,17 +37,20 @@ function MyButton(props: {icon: IconSource; value: string}) {
   );
 }
 
-export function SymbolFilter() {
-  const [chosen, setChosen] = React.useState('square');
+export function SymbolFilter(props: {
+  symbolFilter: string;
+  setSymbolFilter: (x: string) => void;
+}) {
+  const {symbolFilter, setSymbolFilter} = props;
 
   return (
     <View style={styles.outerContainer}>
       <View style={styles.spacer} />
       <ToggleButton.Row
         onValueChange={value =>
-          value === 'chosen' ? setChosen('') : setChosen(value)
+          setSymbolFilter(value === 'chosen' ? '' : value)
         }
-        value={chosen}
+        value={symbolFilter}
         style={styles.buttonRow}>
         {Object.keys(symbols).map(symbol => {
           return (

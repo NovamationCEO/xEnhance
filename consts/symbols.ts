@@ -25,14 +25,9 @@ export const symbols: symbolsType = {
     value: 'diamond',
   },
   plus: {
-    name: 'Diamond-Plus',
+    name: 'Diamond+',
     icon: 'plus-thick',
     value: 'plus',
-  },
-  minus: {
-    name: 'Diamond-Minus',
-    icon: 'minus-thick',
-    value: 'minus',
   },
   hex: {
     name: 'Hex',
