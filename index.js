@@ -12,7 +12,7 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'tomato',
+    primary: '#0F006E',
     secondary: 'yellow',
     onPrimary: 'tomato',
     primaryContainer: 'purple',

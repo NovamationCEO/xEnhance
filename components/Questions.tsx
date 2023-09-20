@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
   questionContainer: {
     padding: 10,
     margin: 10,
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  buttonBar: {
+    backgroundColor: '#1181B9',
+    borderRadius: 20,
   },
 });
 
@@ -22,6 +28,7 @@ function MyYesNo(props: {
       <SegmentedButtons
         value={value.toString()}
         onValueChange={(v: string) => setValue(v === 'true')}
+        style={styles.buttonBar}
         buttons={[
           {
             value: value.toString(),
@@ -47,7 +54,7 @@ export function Questions() {
   const [previous, setPrevious] = React.useState(0);
 
   return (
-    <View>
+    <View style={styles.questionContainer}>
       <MyYesNo
         value={multitarget}
         setValue={setMultitarget}
