@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {SegmentedButtons} from 'react-native-paper';
 import {MySlider} from './MySlider';
 
@@ -13,6 +13,16 @@ const styles = StyleSheet.create({
   buttonBar: {
     backgroundColor: '#1181B9',
     borderRadius: 20,
+  },
+  costContainer: {
+    display: 'flex',
+    flex: 1,
+    alignText: 'center',
+    justifyContent: 'center',
+  },
+  finalCost: {
+    fontSize: 50,
+    fontWeight: 'bold',
   },
 });
 
@@ -46,12 +56,35 @@ function MyYesNo(props: {
   );
 }
 
-export function Questions() {
+export function Questions(props: {baseCost: number}) {
   const [multitarget, setMultitarget] = React.useState(false);
   const [hasLost, setHasLost] = React.useState(false);
   const [hasPersistent, setHasPersistent] = React.useState(false);
   const [cardLevel, setCardLevel] = React.useState(1);
   const [previous, setPrevious] = React.useState(0);
+
+  const {baseCost} = props;
+
+  function getFinalCost() {
+    let total = baseCost;
+
+    if (multitarget) {
+      total = total * 2;
+    }
+
+    if (hasLost && !hasPersistent) {
+      total = total / 2;
+    }
+
+    if (hasPersistent) {
+      total = total * 3;
+    }
+
+    total = total + (cardLevel - 1) * 25;
+    total = total + previous * 75;
+
+    return total;
+  }
 
   return (
     <View style={styles.questionContainer}>
@@ -80,6 +113,9 @@ export function Questions() {
         min={0}
         max={3}
       />
+      <View style={styles.costContainer}>
+        <Text style={styles.finalCost}>{getFinalCost()}</Text>
+      </View>
     </View>
   );
 }

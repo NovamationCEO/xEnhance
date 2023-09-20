@@ -7,6 +7,7 @@ import {Questions} from '../components/Questions';
 
 export function MainPage(): JSX.Element {
   const [symbolFilter, setSymbolFilter] = React.useState('');
+  const [baseCost, setBaseCost] = React.useState(0);
   return (
     <View>
       <MyBanner />
@@ -14,8 +15,8 @@ export function MainPage(): JSX.Element {
         symbolFilter={symbolFilter}
         setSymbolFilter={setSymbolFilter}
       />
-      <Enhancements symbolFilter={symbolFilter} />
-      <Questions />
+      <Enhancements symbolFilter={symbolFilter} setBaseCost={setBaseCost} />
+      <Questions baseCost={baseCost} />
     </View>
   );
 }
