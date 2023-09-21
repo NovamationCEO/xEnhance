@@ -47,11 +47,12 @@ export function Enhancements(props: {
         if (!symbolFilter || !whiteList || whiteList.includes(target.type)) {
           return (
             <Button
-              mode={target.value === chosen ? 'contained-tonal' : 'elevated'}
+              mode={target.value === chosen ? 'elevated' : 'contained-tonal'}
               onPress={() => {
                 setChosen(target.value === chosen ? '' : target.value);
               }}
-              style={styles.button}>
+              style={styles.button}
+              key={enhancement}>
               {target.name}
             </Button>
           );

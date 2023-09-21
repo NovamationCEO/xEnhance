@@ -43,7 +43,10 @@ const MyBanner = () => {
               <Text style={styles.theText}>ENHANCEMENT WORKSHOP</Text>
             </View>
           }>
-          <Image source={require('../images/frost.jpg')} style={styles.image} />
+          <Image
+            source={require('../assets/images/frost.jpg')}
+            style={styles.image}
+          />
         </MaskedView>
       </LinearGradient>
     </View>

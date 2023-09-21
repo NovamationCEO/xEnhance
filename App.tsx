@@ -42,7 +42,7 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.backgroundStyle}>
       <ImageBackground
-        source={require('./images/frost.jpg')}
+        source={require('./assets/images/frost.jpg')}
         resizeMode="cover"
         style={styles.image}>
         <StatusBar
