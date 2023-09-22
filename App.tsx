@@ -39,6 +39,12 @@ function App(): JSX.Element {
     },
   });
 
+  const aspect = Math.floor(Math.random() * 8);
+
+  const storeName = aspect
+    ? "Voice-of-Eight's Enhancements"
+    : 'Enhancements By Nera (✿◠‿◠)';
+
   return (
     <SafeAreaView style={styles.backgroundStyle}>
       <ImageBackground
@@ -51,7 +57,7 @@ function App(): JSX.Element {
         />
 
         <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <MainPage />
+          <MainPage storeName={storeName} />
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>

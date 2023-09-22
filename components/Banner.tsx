@@ -3,7 +3,9 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient from 'react-native-linear-gradient';
 
-const MyBanner = () => {
+const MyBanner = (props: {storeName: string}) => {
+  const {storeName} = props;
+
   const styles = StyleSheet.create({
     textBar: {
       justifyContent: 'center',
@@ -40,7 +42,7 @@ const MyBanner = () => {
           style={styles.mainMask}
           maskElement={
             <View style={styles.maskElement}>
-              <Text style={styles.theText}>ENHANCEMENT WORKSHOP</Text>
+              <Text style={styles.theText}>{storeName}</Text>
             </View>
           }>
           <Image
