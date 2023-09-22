@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Questions(props: {baseCost: number}) {
+export function Questions(props: {baseCost: number; isSummon: boolean}) {
   const [multitarget, setMultitarget] = React.useState(false);
   const [hasLost, setHasLost] = React.useState(false);
   const [hasPersistent, setHasPersistent] = React.useState(false);
@@ -28,7 +28,7 @@ export function Questions(props: {baseCost: number}) {
   const [previous, setPrevious] = React.useState(0);
   const [enhancerLevel, setEnhancerLevel] = React.useState(1);
 
-  const {baseCost} = props;
+  const {baseCost, isSummon} = props;
 
   function getFinalCost(): {total: number; receipt: string[][]} {
     let total = baseCost;
@@ -48,7 +48,7 @@ export function Questions(props: {baseCost: number}) {
       receipt.push(['Lost Ability', '/ 2']);
     }
 
-    if (hasPersistent) {
+    if (hasPersistent && !isSummon) {
       total = total * 3;
       receipt.push(['Persistent', 'x 3']);
     }

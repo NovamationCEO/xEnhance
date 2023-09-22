@@ -7,8 +7,9 @@ import {allowed} from '../consts/allowed';
 export function Enhancements(props: {
   symbolFilter: string;
   setBaseCost: (n: number) => void;
+  setIsSummon: (b: boolean) => void;
 }) {
-  const {symbolFilter, setBaseCost} = props;
+  const {symbolFilter, setBaseCost, setIsSummon} = props;
   const [chosen, setChosen] = React.useState('');
 
   React.useEffect(() => {
@@ -50,6 +51,7 @@ export function Enhancements(props: {
               mode={target.value === chosen ? 'contained-tonal' : 'elevated'}
               onPress={() => {
                 setChosen(target.value === chosen ? '' : target.value);
+                setIsSummon(target.value.includes('summon'));
               }}
               style={styles.button}
               key={enhancement}>
