@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native';
+import {colors} from '../consts/colors';
 
 const styles = StyleSheet.create({
   bottom: {
@@ -30,13 +31,19 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
+  finalCostContainer: {
+    flex: 1,
+    backgroundColor: colors.lightIce,
+    borderWidth: 2,
+    borderRadius: 30,
+    margin: 25,
+  },
   finalCost: {
     fontSize: 50,
     fontWeight: 'bold',
-    margin: 15,
-    display: 'flex',
     textAlign: 'center',
-    flex: 2,
+    flex: 1,
+    padding: 40,
   },
   receiptLine: {
     display: 'flex',
@@ -52,7 +59,9 @@ export function Billing(props: {finalCost: number; receipt: string[][]}) {
 
   return (
     <View style={styles.bottom}>
-      <Text style={styles.finalCost}>{finalCost}</Text>
+      <View style={styles.finalCostContainer}>
+        <Text style={styles.finalCost}>{finalCost}</Text>
+      </View>
       <View style={styles.receiptContainer}>
         <Image
           source={require('../assets/images/notch180.png')}

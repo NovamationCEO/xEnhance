@@ -67,6 +67,21 @@ export function Questions(props: {baseCost: number}) {
       receipt.push(['Previous Enhancements', `+ ${previousFee}`]);
     }
 
+    const discounts = [
+      0,
+      0,
+      10,
+      10 + (cardLevel - 1) * 10,
+      10 + (cardLevel - 1) * 10 + previous * 25,
+    ];
+    if (enhancerLevel > 1) {
+      total = total - discounts[enhancerLevel];
+      receipt.push([
+        'Shop Discount',
+        `- ${discounts[enhancerLevel].toString()}`,
+      ]);
+    }
+
     return {total, receipt};
   }
 
