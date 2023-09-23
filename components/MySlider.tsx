@@ -11,12 +11,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    maxWidth: 550,
+    // maxWidth: 550,
     flex: 1,
   },
   holder: {
     flex: 1,
-    maxWidth: 550,
     backgroundColor: colors.darkIce,
     borderRadius: 500,
     flexDirection: 'column',

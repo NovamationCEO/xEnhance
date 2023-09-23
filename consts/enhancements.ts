@@ -174,7 +174,7 @@ export const enhancements: enhancementsType = {
   },
   aoeHex: {
     name: 'Area-of-Effect Hex',
-    value: 'aeoHex',
+    value: 'aoeHex',
     cost: 200,
     type: symbols.hex.value,
   },

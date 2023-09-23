@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {MySlider} from './MySlider';
 import {Billing} from './Billing';
 import {BoolQuestion} from './BoolQuestion';
@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'row',
   },
+  newLine: {
+    width: 500,
+    flex: 1,
+  },
 });
 
 export function Questions(props: {baseCost: number; isSummon: boolean}) {
@@ -27,8 +31,10 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
   const [cardLevel, setCardLevel] = React.useState(1);
   const [previous, setPrevious] = React.useState(0);
   const [enhancerLevel, setEnhancerLevel] = React.useState(1);
+  const [existingHexes, setExistingHexes] = React.useState(1);
 
   const {baseCost, isSummon} = props;
+  const isHex = baseCost === 200;
 
   function getFinalCost(): {total: number; receipt: string[][]} {
     let total = baseCost;
@@ -38,19 +44,26 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
       return {total: 0, receipt: [['Choose an Enhancement', '']]};
     }
 
-    if (multitarget) {
-      total = total * 2;
-      receipt.push(['Multitarget', 'x 2']);
+    if (!isHex) {
+      if (multitarget) {
+        total = total * 2;
+        receipt.push(['Multitarget', 'x 2']);
+      }
+
+      if (hasLost && !hasPersistent) {
+        total = total / 2;
+        receipt.push(['Lost Ability', '/ 2']);
+      }
+
+      if (hasPersistent && !isSummon) {
+        total = total * 3;
+        receipt.push(['Persistent', 'x 3']);
+      }
     }
 
-    if (hasLost && !hasPersistent) {
-      total = total / 2;
-      receipt.push(['Lost Ability', '/ 2']);
-    }
-
-    if (hasPersistent && !isSummon) {
-      total = total * 3;
-      receipt.push(['Persistent', 'x 3']);
+    if (isHex) {
+      total = Math.floor(total / existingHexes);
+      receipt.push(['Existing Hexes', `/ ${existingHexes}`]);
     }
 
     const levelCost = (cardLevel - 1) * 25;
@@ -85,6 +98,64 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
     return {total, receipt};
   }
 
+  type sliderDataType = {
+    label: string;
+    value: number;
+    setValue: (n: number) => void;
+    min: number;
+    max: number;
+    id: string;
+  };
+  const sliderData: sliderDataType[] = [
+    {
+      label: 'Card Level',
+      value: cardLevel,
+      setValue: setCardLevel,
+      min: 1,
+      max: 9,
+      id: 'q1',
+    },
+    {
+      label: 'Existing Enhancements',
+      value: previous,
+      setValue: setPrevious,
+      min: 0,
+      max: 3,
+      id: 'q2',
+    },
+    {
+      label: 'Enhancer Level',
+      value: enhancerLevel,
+      setValue: setEnhancerLevel,
+      min: 1,
+      max: 4,
+      id: 'q3',
+    },
+  ];
+
+  if (isHex) {
+    sliderData.push({
+      label: 'Existing Hexes',
+      value: existingHexes,
+      setValue: setExistingHexes,
+      min: 1,
+      max: 9,
+      id: 'q4',
+    });
+  }
+
+  function renderSlider(item: sliderDataType) {
+    return (
+      <MySlider
+        label={item.label}
+        value={item.value}
+        onChange={item.setValue}
+        min={item.min}
+        max={item.max}
+      />
+    );
+  }
+
   return (
     <View style={styles.questionContainer}>
       <BoolQuestion
@@ -103,6 +174,14 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
         label={'Has Persistent Icon?'}
       />
       <View style={styles.sliderContainer}>
+        <FlatList
+          data={sliderData}
+          numColumns={2}
+          renderItem={({item}) => renderSlider(item)}
+          keyExtractor={item => item.id}
+        />
+      </View>
+      {/* <View style={styles.sliderContainer}>
         <MySlider
           label={'Card Level'}
           value={cardLevel}
@@ -124,7 +203,18 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
           min={1}
           max={4}
         />
-      </View>
+        {isHex && (
+          <View style={styles.newLine}>
+            <MySlider
+              label={'Existing Hexes'}
+              value={existingHexes}
+              onChange={setExistingHexes}
+              min={1}
+              max={9}
+            />
+          </View>
+        )}
+      </View> */}
       <Billing
         finalCost={getFinalCost().total}
         receipt={getFinalCost().receipt}
