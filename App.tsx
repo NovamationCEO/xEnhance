@@ -55,7 +55,6 @@ function App(): JSX.Element {
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={styles.backgroundStyle.backgroundColor}
         />
-
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <MainPage storeName={storeName} />
         </ScrollView>

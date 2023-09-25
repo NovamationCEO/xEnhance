@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   label: {textAlign: 'center', fontWeight: 'bold', color: 'white'},
 });
 
-export function MySlider(props: {
+export function NumberSlider(props: {
   value: number;
   onChange: (n: number) => void;
   min: number;
