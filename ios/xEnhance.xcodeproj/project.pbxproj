@@ -12,10 +12,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		5D7325728771452C89077DD2 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90873D7D730B4D70B26B3F73 /* OFL.txt */; };
 		7699B88040F8A987B510C191 /* libPods-xEnhance-xEnhanceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-xEnhance-xEnhanceTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		96BA4A7EC0BC467F92F23164 /* Fuggles-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */; };
-		5D7325728771452C89077DD2 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90873D7D730B4D70B26B3F73 /* OFL.txt */; };
+		98F7CC642AC22BCD003CE428 /* mixkit-classic-click-1117.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98F7CC632AC22BCD003CE428 /* mixkit-classic-click-1117.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-xEnhance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xEnhance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = xEnhance/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-xEnhance-xEnhanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xEnhance-xEnhanceTests.release.xcconfig"; path = "Target Support Files/Pods-xEnhance-xEnhanceTests/Pods-xEnhance-xEnhanceTests.release.xcconfig"; sourceTree = "<group>"; };
+		90873D7D730B4D70B26B3F73 /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../assets/fonts/OFL.txt; sourceTree = "<group>"; };
 		983B580F2AB78D7000512BAF /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		983B58102AB78D7000512BAF /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		983B58112AB78D7000512BAF /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -64,9 +66,9 @@
 		983B581F2AB78D7000512BAF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		983B58202AB78D7000512BAF /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
 		983B58212AB78D7000512BAF /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		98F7CC632AC22BCD003CE428 /* mixkit-classic-click-1117.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "mixkit-classic-click-1117.wav"; path = "../assets/sounds/mixkit-classic-click-1117.wav"; sourceTree = "<group>"; };
+		DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Fuggles-Regular.ttf"; path = "../assets/fonts/Fuggles-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */ = {isa = PBXFileReference; name = "Fuggles-Regular.ttf"; path = "../assets/fonts/Fuggles-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		90873D7D730B4D70B26B3F73 /* OFL.txt */ = {isa = PBXFileReference; name = "OFL.txt"; path = "../assets/fonts/OFL.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				98F7CC632AC22BCD003CE428 /* mixkit-classic-click-1117.wav */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -188,6 +191,15 @@
 			path = "../../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
+		9AC512E064C2436E9FAD707C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */,
+				90873D7D730B4D70B26B3F73 /* OFL.txt */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,16 +211,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		9AC512E064C2436E9FAD707C /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */,
-				90873D7D730B4D70B26B3F73 /* OFL.txt */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -307,6 +309,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				96BA4A7EC0BC467F92F23164 /* Fuggles-Regular.ttf in Resources */,
+				98F7CC642AC22BCD003CE428 /* mixkit-classic-click-1117.wav in Resources */,
 				5D7325728771452C89077DD2 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {NumberSlider} from './NumberSlider';
 import {Billing} from './Billing';
 import {BoolQuestion} from './BoolQuestion';
+import {Tooltip} from 'react-native-paper';
 
 type sliderDataType = {
   label: string;
@@ -160,11 +161,13 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
 
   return (
     <View style={styles.questionContainer}>
-      <BoolQuestion
-        value={multitarget}
-        setValue={setMultitarget}
-        label={'Targeting multiple figures or hexes?'}
-      />
+      <Tooltip title={'Does not include AOE'}>
+        <BoolQuestion
+          value={multitarget}
+          setValue={setMultitarget}
+          label={'Targeting multiple figures or hexes?'}
+        />
+      </Tooltip>
       <BoolQuestion
         value={hasLost}
         setValue={setHasLost}
