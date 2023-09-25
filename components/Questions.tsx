@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {NumberSlider} from './NumberSlider';
 import {Billing} from './Billing';
 import {BoolQuestion} from './BoolQuestion';
@@ -156,18 +156,6 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
       max: 9,
       id: 'q4',
     });
-  }
-
-  function renderSlider(item: sliderDataType) {
-    return (
-      <NumberSlider
-        label={item.label}
-        value={item.value}
-        onChange={item.setValue}
-        min={item.min}
-        max={item.max}
-      />
-    );
   }
 
   return (
