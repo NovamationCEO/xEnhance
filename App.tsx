@@ -18,6 +18,8 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {MainPage} from './pages/MainPage';
+import {Text} from 'react-native-paper';
+import {colors} from './consts/colors';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -36,6 +38,13 @@ function App(): JSX.Element {
     },
     image: {
       flex: 1,
+    },
+    credit: {
+      backgroundColor: colors.darkIce,
+      textAlign: 'right',
+      paddingTop: 2,
+      paddingRight: 20,
+      color: colors.lightIce,
     },
   });
 
@@ -58,6 +67,7 @@ function App(): JSX.Element {
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <MainPage storeName={storeName} />
         </ScrollView>
+        <Text style={styles.credit}>v1.0 ©2023 Chris Young</Text>
       </ImageBackground>
     </SafeAreaView>
   );
