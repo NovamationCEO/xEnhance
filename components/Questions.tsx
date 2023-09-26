@@ -1,14 +1,13 @@
 import React from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
-import {NumberSlider} from './NumberSlider';
 import {Billing} from './Billing';
 import {BoolQuestion} from './BoolQuestion';
-import {Tooltip} from 'react-native-paper';
+import {MySlider} from './MySlider';
 
 const windowWidth = Dimensions.get('window').width;
 const isWide = windowWidth > 1000;
 
-type sliderDataType = {
+export type sliderDataType = {
   label: string;
   value: number;
   setValue: (n: number) => void;
@@ -39,6 +38,27 @@ const styles = StyleSheet.create({
 
 function Sliders(props: {isHex: boolean; sliderData: sliderDataType[]}) {
   const {isHex, sliderData} = props;
+
+  if (!isWide) {
+    return (
+      <>
+        <View style={styles.sliderContainer}>
+          <MySlider item={sliderData[0]} />
+        </View>
+        <View style={styles.sliderContainer}>
+          <MySlider item={sliderData[1]} />
+        </View>
+        <View style={styles.sliderContainer}>
+          <MySlider item={sliderData[2]} />
+        </View>
+        {isHex && (
+          <View style={styles.sliderContainer}>
+            <MySlider item={sliderData[3]} />
+          </View>
+        )}
+      </>
+    );
+  }
   return (
     <>
       <View style={styles.sliderContainer}>
@@ -53,20 +73,6 @@ function Sliders(props: {isHex: boolean; sliderData: sliderDataType[]}) {
         </View>
       )}
     </>
-  );
-}
-
-function MySlider(props: {item: sliderDataType}) {
-  const {item} = props;
-
-  return (
-    <NumberSlider
-      label={item.label}
-      value={item.value}
-      onChange={item.setValue}
-      min={item.min}
-      max={item.max}
-    />
   );
 }
 
@@ -184,13 +190,11 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
 
   return (
     <View style={styles.questionContainer}>
-      <Tooltip title={'Does not include AOE'}>
-        <BoolQuestion
-          value={multitarget}
-          setValue={setMultitarget}
-          label={'Multiple Targets? (Not AOE)'}
-        />
-      </Tooltip>
+      <BoolQuestion
+        value={multitarget}
+        setValue={setMultitarget}
+        label={'Multiple Targets? (Not AOE)'}
+      />
       <BoolQuestion
         value={hasLost}
         setValue={setHasLost}

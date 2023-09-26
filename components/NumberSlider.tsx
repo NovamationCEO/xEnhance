@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'row',
-    // maxWidth: 550,
     flex: 1,
   },
   holder: {
@@ -54,7 +53,11 @@ const styles = StyleSheet.create({
   track: {
     backgroundColor: 'transparent',
   },
-  label: {textAlign: 'center', fontWeight: 'bold', color: 'white'},
+  label: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'white',
+  },
 });
 
 export function NumberSlider(props: {
@@ -63,13 +66,13 @@ export function NumberSlider(props: {
   min: number;
   max: number;
   step?: number;
-  label: string;
+  label?: string;
 }) {
-  const {value, onChange, min, max, step = 1, label} = props;
+  const {value, onChange, min, max, step = 1, label = ''} = props;
   return (
     <View style={styles.questionContainer}>
       <View style={styles.holder}>
-        <Text style={styles.label}>{label}</Text>
+        {label.length > 0 && <Text style={styles.label}>{label}</Text>}
         <Slider
           value={value}
           onValueChange={(n: number[]) => onChange(n[0])}

@@ -19,18 +19,19 @@ const styles = (props: {isTrue: boolean}) =>
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: colors.darkIce,
+      backgroundColor: props.isTrue ? colors.lightIce : colors.darkIce,
       paddingLeft: 10,
       paddingRight: 10,
       paddingTop: 5,
       paddingBottom: 5,
       height: 41,
       borderRadius: 20,
+      marginTop: -15,
     },
     shortLabel: {
       fontWeight: 'bold',
       paddingTop: 7,
-      color: props.isTrue ? colors.lightIce : colors.primary,
+      color: props.isTrue ? colors.primary : colors.lightIce,
     },
   });
 
@@ -73,7 +74,7 @@ export function BoolQuestion(props: {
           <Switch
             value={value}
             onValueChange={() => setValue(!value)}
-            color={colors.lightIce}
+            color={colors.darkIce}
           />
         </View>
       )}
