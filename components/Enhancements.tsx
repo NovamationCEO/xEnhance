@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import {enhancements} from '../consts/enhancements';
 import {allowed} from '../consts/allowed';
@@ -34,8 +34,11 @@ export function Enhancements(props: {
       justifyContent: 'center',
     },
     button: {
-      width: 200,
+      width: 150,
       margin: 10,
+    },
+    text: {
+      width: 150,
     },
   });
 
@@ -55,7 +58,12 @@ export function Enhancements(props: {
               }}
               style={styles.button}
               key={enhancement}>
-              {target.name}
+              <Text
+                style={styles.text}
+                adjustsFontSizeToFit={true}
+                numberOfLines={1}>
+                {target.name}
+              </Text>
             </Button>
           );
         }

@@ -1,9 +1,12 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import {NumberSlider} from './NumberSlider';
 import {Billing} from './Billing';
 import {BoolQuestion} from './BoolQuestion';
 import {Tooltip} from 'react-native-paper';
+
+const windowWidth = Dimensions.get('window').width;
+const isWide = windowWidth > 1000;
 
 type sliderDataType = {
   label: string;
@@ -34,6 +37,25 @@ const styles = StyleSheet.create({
   },
 });
 
+function Sliders(props: {isHex: boolean; sliderData: sliderDataType[]}) {
+  const {isHex, sliderData} = props;
+  return (
+    <>
+      <View style={styles.sliderContainer}>
+        <MySlider item={sliderData[0]} />
+        <MySlider item={sliderData[1]} />
+        {!isHex && <MySlider item={sliderData[2]} />}
+      </View>
+      {isHex && (
+        <View style={styles.sliderContainer}>
+          <MySlider item={sliderData[2]} />
+          <MySlider item={sliderData[3]} />
+        </View>
+      )}
+    </>
+  );
+}
+
 function MySlider(props: {item: sliderDataType}) {
   const {item} = props;
 
@@ -47,6 +69,7 @@ function MySlider(props: {item: sliderDataType}) {
     />
   );
 }
+
 export function Questions(props: {baseCost: number; isSummon: boolean}) {
   const [multitarget, setMultitarget] = React.useState(false);
   const [hasLost, setHasLost] = React.useState(false);
@@ -165,7 +188,7 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
         <BoolQuestion
           value={multitarget}
           setValue={setMultitarget}
-          label={'Targeting multiple figures or hexes?'}
+          label={'Multiple Targets? (Not AOE)'}
         />
       </Tooltip>
       <BoolQuestion
@@ -178,17 +201,7 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
         setValue={setHasPersistent}
         label={'Has Persistent Icon?'}
       />
-      <View style={styles.sliderContainer}>
-        <MySlider item={sliderData[0]} />
-        <MySlider item={sliderData[1]} />
-        {!isHex && <MySlider item={sliderData[2]} />}
-      </View>
-      {isHex && (
-        <View style={styles.sliderContainer}>
-          <MySlider item={sliderData[2]} />
-          <MySlider item={sliderData[3]} />
-        </View>
-      )}
+      <Sliders isHex={isHex} sliderData={sliderData} />
       <Billing
         finalCost={getFinalCost().total}
         receipt={getFinalCost().receipt}
