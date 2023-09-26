@@ -1,13 +1,14 @@
 {
   "name": "xEnhance",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "connect": "npm install; cd ios; npx pod install; cd ..; npx react-native-asset"
   },
   "dependencies": {
     "@miblanchard/react-native-slider": "^2.3.1",
