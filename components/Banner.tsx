@@ -18,24 +18,31 @@ const MyBanner = (props: {storeName: string}) => {
       width: '100%',
     },
     maskElement: {
+      padding: 5,
       backgroundColor: 'transparent',
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      padding: 5,
     },
     theText: {
       fontSize: 60,
       color: 'black',
       fontWeight: 'bold',
       textAlign: 'center',
-      padding: 10,
+      padding: 12,
     },
   });
 
   return (
     <View>
-      <LinearGradient colors={['transparent', colors.darkIce, 'transparent']}>
+      <LinearGradient
+        colors={[
+          'transparent',
+          colors.darkIce,
+          colors.darkIce,
+          colors.darkIce,
+          'transparent',
+        ]}>
         <MaskedView
           style={styles.mainMask}
           maskElement={
