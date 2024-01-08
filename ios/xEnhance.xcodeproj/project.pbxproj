@@ -17,7 +17,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		96BA4A7EC0BC467F92F23164 /* Fuggles-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */; };
 		9811EFF32B45F58300A66C9E /* plus.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9811EFF22B45F58300A66C9E /* plus.svg */; };
-		98F7CC642AC22BCD003CE428 /* mixkit-classic-click-1117.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98F7CC632AC22BCD003CE428 /* mixkit-classic-click-1117.wav */; };
+		9811EFF72B4CA48600A66C9E /* short-click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9811EFF62B4CA48600A66C9E /* short-click.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 		9028EF7213499615FB64614C /* Pods-xEnhance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xEnhance.debug.xcconfig"; path = "Target Support Files/Pods-xEnhance/Pods-xEnhance.debug.xcconfig"; sourceTree = "<group>"; };
 		90873D7D730B4D70B26B3F73 /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../assets/fonts/OFL.txt; sourceTree = "<group>"; };
 		9811EFF22B45F58300A66C9E /* plus.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = plus.svg; path = ../assets/images/plus.svg; sourceTree = "<group>"; };
+		9811EFF62B4CA48600A66C9E /* short-click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "short-click.wav"; path = "../assets/sounds/short-click.wav"; sourceTree = "<group>"; };
 		983B580F2AB78D7000512BAF /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		983B58102AB78D7000512BAF /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		983B58112AB78D7000512BAF /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		983B581F2AB78D7000512BAF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		983B58202AB78D7000512BAF /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
 		983B58212AB78D7000512BAF /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
-		98F7CC632AC22BCD003CE428 /* mixkit-classic-click-1117.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "mixkit-classic-click-1117.wav"; path = "../assets/sounds/mixkit-classic-click-1117.wav"; sourceTree = "<group>"; };
 		D837A5227145FFD8DC8147C9 /* libPods-xEnhance-xEnhanceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xEnhance-xEnhanceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE1515A21A54B52B4AED597 /* Fuggles-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Fuggles-Regular.ttf"; path = "../assets/fonts/Fuggles-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -113,11 +113,11 @@
 		13B07FAE1A68108700A75B9A /* xEnhance */ = {
 			isa = PBXGroup;
 			children = (
+				9811EFF62B4CA48600A66C9E /* short-click.wav */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				9811EFF22B45F58300A66C9E /* plus.svg */,
-				98F7CC632AC22BCD003CE428 /* mixkit-classic-click-1117.wav */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -312,8 +312,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				9811EFF72B4CA48600A66C9E /* short-click.wav in Resources */,
 				96BA4A7EC0BC467F92F23164 /* Fuggles-Regular.ttf in Resources */,
-				98F7CC642AC22BCD003CE428 /* mixkit-classic-click-1117.wav in Resources */,
 				9811EFF32B45F58300A66C9E /* plus.svg in Resources */,
 				5D7325728771452C89077DD2 /* OFL.txt in Resources */,
 			);

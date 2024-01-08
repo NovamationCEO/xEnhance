@@ -4,6 +4,7 @@ import {sliderDataType} from './Questions';
 import {Text} from 'react-native-paper';
 import {Dimensions, StyleSheet, View} from 'react-native';
 import {colors} from '../consts/colors';
+import Sound from 'react-native-sound';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,8 +32,27 @@ const styles = StyleSheet.create({
 const windowWidth = Dimensions.get('window').width;
 const isWide = windowWidth > 1000;
 
+Sound.setCategory('Playback');
+const sound = new Sound('short-click.wav', Sound.MAIN_BUNDLE, error => {
+  if (error) {
+    console.log('Error loading sound: ', error);
+  }
+});
+
+function playSound() {
+  sound.setVolume(0.1);
+  sound.play();
+}
+
 export function MySlider(props: {item: sliderDataType}) {
   const {item} = props;
+
+  function changeIt(n: number) {
+    if (n !== item.value) {
+      playSound();
+    }
+    item.setValue(n);
+  }
 
   return (
     <View style={styles.container}>
@@ -48,7 +68,7 @@ export function MySlider(props: {item: sliderDataType}) {
       <NumberSlider
         label={isWide ? item.label : ''}
         value={item.value}
-        onChange={item.setValue}
+        onChange={changeIt}
         min={item.min}
         max={item.max}
       />

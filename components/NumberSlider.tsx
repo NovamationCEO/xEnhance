@@ -79,13 +79,16 @@ export function NumberSlider(props: {
   label?: string;
 }) {
   const {value, onChange, min, max, step = 1, label = ''} = props;
+
   return (
     <View style={styles.questionContainer}>
       <View style={styles.holder}>
         {label.length > 0 && <Text style={styles.label}>{label}</Text>}
         <Slider
           value={value}
-          onValueChange={(n: number[]) => onChange(n[0])}
+          onValueChange={(n: number[]) => {
+            onChange(n[0]);
+          }}
           minimumValue={min}
           maximumValue={max}
           step={step}
