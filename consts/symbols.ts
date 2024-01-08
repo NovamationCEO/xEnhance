@@ -5,6 +5,7 @@ type symbolsType = {
     name: string;
     icon: IconSource;
     value: string;
+    overlay?: IconSource;
   };
 };
 
@@ -26,8 +27,9 @@ export const symbols: symbolsType = {
   },
   plus: {
     name: 'Diamond+',
-    icon: 'plus-thick',
+    icon: '',
     value: 'plus',
+    overlay: 'diamond',
   },
   hex: {
     name: 'Hex',

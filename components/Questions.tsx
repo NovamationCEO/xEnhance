@@ -76,7 +76,11 @@ function Sliders(props: {isHex: boolean; sliderData: sliderDataType[]}) {
   );
 }
 
-export function Questions(props: {baseCost: number; isSummon: boolean}) {
+export function Questions(props: {
+  baseCost: number;
+  isSummon: boolean;
+  isMultiImmune: boolean;
+}) {
   const [multitarget, setMultitarget] = React.useState(false);
   const [hasLost, setHasLost] = React.useState(false);
   const [hasPersistent, setHasPersistent] = React.useState(false);
@@ -85,8 +89,14 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
   const [enhancerLevel, setEnhancerLevel] = React.useState(1);
   const [existingHexes, setExistingHexes] = React.useState(1);
 
-  const {baseCost, isSummon} = props;
+  const {baseCost, isSummon, isMultiImmune} = props;
   const isHex = baseCost === 200;
+
+  React.useEffect(() => {
+    setHasLost(false);
+    setHasPersistent(false);
+    setMultitarget(false);
+  }, [isSummon]);
 
   function getFinalCost(): {total: number; receipt: string[][]} {
     let total = baseCost;
@@ -96,21 +106,19 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
       return {total: 0, receipt: [['Choose an Enhancement', '']]};
     }
 
-    if (!isHex) {
-      if (multitarget) {
-        total = total * 2;
-        receipt.push(['Multitarget', 'x 2']);
-      }
+    if (multitarget) {
+      total = total * 2;
+      receipt.push(['Multitarget', 'x 2']);
+    }
 
-      if (hasLost && !hasPersistent) {
-        total = total / 2;
-        receipt.push(['Lost Ability', '/ 2']);
-      }
+    if (hasLost && !hasPersistent) {
+      total = total / 2;
+      receipt.push(['Lost Ability', '/ 2']);
+    }
 
-      if (hasPersistent && !isSummon) {
-        total = total * 3;
-        receipt.push(['Persistent', 'x 3']);
-      }
+    if (hasPersistent && !isSummon) {
+      total = total * 3;
+      receipt.push(['Persistent', 'x 3']);
     }
 
     if (isHex) {
@@ -190,21 +198,29 @@ export function Questions(props: {baseCost: number; isSummon: boolean}) {
 
   return (
     <View style={styles.questionContainer}>
-      <BoolQuestion
-        value={multitarget}
-        setValue={setMultitarget}
-        label={'Multiple Targets? (Not AOE)'}
-      />
-      <BoolQuestion
-        value={hasLost}
-        setValue={setHasLost}
-        label={'Has Lost icon?'}
-      />
-      <BoolQuestion
-        value={hasPersistent}
-        setValue={setHasPersistent}
-        label={'Has Persistent Icon?'}
-      />
+      {!isSummon && (
+        <>
+          {!isMultiImmune && (
+            <BoolQuestion
+              value={multitarget}
+              setValue={setMultitarget}
+              label={'Multiple Targets?'}
+            />
+          )}
+
+          <BoolQuestion
+            value={hasLost}
+            setValue={b => setHasLost(b)}
+            label={'Has Lost icon?'}
+          />
+
+          <BoolQuestion
+            value={hasPersistent}
+            setValue={setHasPersistent}
+            label={'Has Persistent Icon?'}
+          />
+        </>
+      )}
       <Sliders isHex={isHex} sliderData={sliderData} />
       <Billing
         finalCost={getFinalCost().total}

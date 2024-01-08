@@ -8,8 +8,9 @@ export function Enhancements(props: {
   symbolFilter: string;
   setBaseCost: (n: number) => void;
   setIsSummon: (b: boolean) => void;
+  setIsMultiImmune: (b: boolean) => void;
 }) {
-  const {symbolFilter, setBaseCost, setIsSummon} = props;
+  const {symbolFilter, setBaseCost, setIsSummon, setIsMultiImmune} = props;
   const [chosen, setChosen] = React.useState('');
 
   React.useEffect(() => {
@@ -20,9 +21,11 @@ export function Enhancements(props: {
       !enhancements[chosen].cost
     ) {
       setBaseCost(0);
+      setIsMultiImmune(false);
       return;
     }
     setBaseCost(enhancements[chosen].cost);
+    setIsMultiImmune(enhancements[chosen].isMultiImmune || false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chosen]);
 

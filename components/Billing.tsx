@@ -10,7 +10,9 @@ import {
 import {colors} from '../consts/colors';
 
 const windowWidth = Dimensions.get('window').width;
-const isWide = windowWidth > 1000;
+const isWide = windowWidth > 800;
+
+const noteWidth = 220;
 
 const styles = StyleSheet.create({
   bottom: {
@@ -31,13 +33,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.27,
     shadowRadius: 3.05,
     transform: 'rotate(-1deg)',
-    width: 190,
+    width: noteWidth,
   },
   image: {
-    width: 190,
+    width: noteWidth,
   },
   receiptItem: {
-    fontSize: 20,
+    fontSize: 25,
     textAlign: 'right',
     fontFamily: 'Fuggles',
     marginLeft: 10,
@@ -50,6 +52,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     margin: 25,
     minWidth: 300,
+    maxHeight: 140,
+    minHeight: 140,
   },
   finalCost: {
     fontSize: 50,

@@ -9,6 +9,7 @@ export function MainPage(props: {storeName: string}): JSX.Element {
   const [symbolFilter, setSymbolFilter] = React.useState('');
   const [baseCost, setBaseCost] = React.useState(0);
   const [isSummon, setIsSummon] = React.useState(false);
+  const [isMultiImmune, setIsMultiImmune] = React.useState(false);
 
   const {storeName} = props;
 
@@ -19,12 +20,23 @@ export function MainPage(props: {storeName: string}): JSX.Element {
         symbolFilter={symbolFilter}
         setSymbolFilter={setSymbolFilter}
       />
-      <Enhancements
-        symbolFilter={symbolFilter}
-        setBaseCost={setBaseCost}
-        setIsSummon={setIsSummon}
-      />
-      <Questions baseCost={baseCost} isSummon={isSummon} />
+      {symbolFilter && symbolFilter.length && (
+        <>
+          <Enhancements
+            symbolFilter={symbolFilter}
+            setBaseCost={setBaseCost}
+            setIsSummon={setIsSummon}
+            setIsMultiImmune={setIsMultiImmune}
+          />
+          {baseCost > 0 && (
+            <Questions
+              baseCost={baseCost}
+              isSummon={isSummon}
+              isMultiImmune={isMultiImmune}
+            />
+          )}
+        </>
+      )}
     </View>
   );
 }

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     alignContents: 'center',
     alignItems: 'center',
     borderRadius: 15,
+    marginBottom: -15,
   },
   label: {
     fontWeight: 'bold',

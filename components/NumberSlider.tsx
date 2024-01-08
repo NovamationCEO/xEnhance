@@ -58,7 +58,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
+  trackMark: {
+    transform: [{translateY: -20}, {translateX: 17}],
+    width: 5,
+    height: 10,
+    backgroundColor: colors.lightIce,
+  },
 });
+
+function TrackMark() {
+  return <View style={styles.trackMark} />;
+}
 
 export function NumberSlider(props: {
   value: number;
@@ -93,6 +103,9 @@ export function NumberSlider(props: {
           containerStyle={styles.trackContainer}
           trackStyle={styles.track}
           minimumTrackStyle={styles.track}
+          animateTransitions={true}
+          trackMarks={Array.from(Array(max + 1).keys())}
+          renderTrackMarkComponent={TrackMark}
         />
       </View>
     </View>

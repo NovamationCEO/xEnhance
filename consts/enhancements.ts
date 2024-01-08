@@ -6,6 +6,7 @@ type enhancementsType = {
     value: string;
     cost: number;
     type: keyof typeof symbols;
+    isMultiImmune?: boolean;
   };
 };
 
@@ -33,6 +34,7 @@ export const enhancements: enhancementsType = {
     value: 'target',
     cost: 75,
     type: symbols.plus.value,
+    isMultiImmune: true,
   },
   shield: {
     name: 'Shield +1',
@@ -159,12 +161,14 @@ export const enhancements: enhancementsType = {
     value: 'element',
     cost: 100,
     type: symbols.circle.value,
+    isMultiImmune: true,
   },
   wildElement: {
     name: 'Wild Element',
     value: 'wildElement',
     cost: 150,
     type: symbols.circle.value,
+    isMultiImmune: true,
   },
   jump: {
     name: 'Jump',
@@ -177,5 +181,6 @@ export const enhancements: enhancementsType = {
     value: 'aoeHex',
     cost: 200,
     type: symbols.hex.value,
+    isMultiImmune: true,
   },
 };

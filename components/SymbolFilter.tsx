@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {ToggleButton} from 'react-native-paper';
 import {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 import {symbols} from '../consts/symbols';
@@ -17,15 +17,37 @@ const styles = StyleSheet.create({
   buttonRow: {
     justifyContent: 'space-around',
     span: 40,
+    backgroundColor: '#FFFFFF57',
+    borderRadius: 40,
   },
   button: {
     padding: 10,
     margin: 10,
     width: 80,
     height: 80,
+    borderRadius: 40,
   },
   spacer: {
     flex: 1,
+  },
+  overlay: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  holder: {
+    position: 'relative',
+  },
+  plus: {
+    width: 50,
+    height: 50,
+    position: 'absolute',
+    left: 24,
+    top: 24,
   },
 });
 
@@ -54,11 +76,20 @@ export function SymbolFilter(props: {
         style={styles.buttonRow}>
         {Object.keys(symbols).map(symbol => {
           return (
-            <MyButton
-              icon={symbols[symbol].icon}
-              value={symbols[symbol].value}
-              key={symbols[symbol].value}
-            />
+            <View style={styles.holder} key={symbols[symbol].value}>
+              {symbols[symbol].overlay && (
+                <View style={styles.overlay}>
+                  <Image
+                    source={require('../assets/images/plus.png')}
+                    style={styles.plus}
+                  />
+                </View>
+              )}
+              <MyButton
+                icon={symbols[symbol].icon}
+                value={symbols[symbol].value}
+              />
+            </View>
           );
         })}
       </ToggleButton.Row>
