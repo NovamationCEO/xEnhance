@@ -27,7 +27,7 @@ export const symbols: symbolsType = {
   },
   plus: {
     name: 'Diamond+',
-    icon: '',
+    icon: 'plus',
     value: 'plus',
     overlay: 'diamond',
   },

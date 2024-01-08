@@ -55,7 +55,12 @@ function MyButton(props: {icon: IconSource; value: string}) {
   const {icon, value} = props;
 
   return (
-    <ToggleButton icon={icon} value={value} style={styles.button} size={50} />
+    <ToggleButton
+      icon={icon}
+      value={value}
+      style={styles.button}
+      size={value === 'plus' ? 20 : 50}
+    />
   );
 }
 
