@@ -13,7 +13,8 @@
   "dependencies": {
     "@miblanchard/react-native-slider": "^2.3.1",
     "@react-native-masked-view/masked-view": "^0.2.9",
-    "pod": "^0.9.0",
+    "metro-config": "^0.80.9",
+    "metro-runtime": "^0.80.9",
     "react": "18.2.0",
     "react-native": "0.72.4",
     "react-native-linear-gradient": "^2.8.3",
